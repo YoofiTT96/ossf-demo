@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/YoofiTT96/calm-schemas/refs/heads/main/data-exchange-type-interface.json",
+  "$id": "https://raw.githubusercontent.com/YoofiTT96/ossf-demo/refs/heads/main/data-exchange-type-interface.json",
   "title": "Data Exchange Type Interface",
   "type": "object",
   "properties": {

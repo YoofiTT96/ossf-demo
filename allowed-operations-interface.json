@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/YoofiTT96/calm-schemas/refs/heads/main/allowed-operations-interface.json",
+  "$id": "https://raw.githubusercontent.com/YoofiTT96/ossf-demo/refs/heads/main/allowed-operations-interface.json",
   "title": "Allowed Operations Interface",
   "type": "object",
   "properties": {
