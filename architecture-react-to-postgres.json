@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "unique-id": "spa",
+      "name": "React Single Page Application",
+      "description": "Single Page React Application",
+      "node-type": "webclient",
+      "metadata": [
+        {
+          "technology": [
+            "ReactJS",
+            "Javascript"
+          ]
+        }
+      ]
+    },
+    {
+      "unique-id": "producer-service",
+      "name": "Producer Service",
+      "description": "Application to provide updates on results and stats",
+      "node-type": "service"
+    },
+    {
+      "unique-id": "postgres-database",
+      "name": "PostgresSQL Database",
+      "description": "PostgresSQL used by Producer Service",
+      "node-type": "database"
+    }
+  ],
+  "relationships": [
+    {
+      "unique-id": "spa-to-producer-service",
+      "description": "React Application connects to Producer Service",
+      "relationship-type": {
+        "connects": {
+          "source": {
+            "node": "spa"
+          },
+          "destination": {
+            "node": "producer-service"
+          }
+        }
+      }
+    },
+    {
+      "unique-id": "producer-service-to-postgres-database",
+      "description": "Producer Service connects to the PostgresSQL Database",
+      "relationship-type": {
+        "connects": {
+          "source": {
+            "node": "producer-service"
+          },
+          "destination": {
+            "node": "postgres-database"
+          }
+        }
+      }
+    },
+    {
+      "unique-id": "connection-options",
+      "description": "The choice of consumer to use in the pattern",
+      "relationship-type": {
+        "options": [
+          {
+            "description": "React Application connects to Producer Service",
+            "nodes": [
+              "spa"
+            ],
+            "relationships": [
+              "spa-to-producer-service"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "unique-id": "connection-options-2",
+      "description": "The choice of database to use in the pattern",
+      "relationship-type": {
+        "options": [
+          {
+            "description": "Producer Service connects to Postgres Database",
+            "nodes": [
+              "postgres-database"
+            ],
+            "relationships": [
+              "producer-service-to-postgres-database"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "$schema": "https://calm.finos.org/release/1.0-rc1/prototype/oneof/options-prototype.pattern.json"
+}
