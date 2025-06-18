@@ -16,11 +16,11 @@ def send_pattern_to_calm_hub(pattern):
 @click.option('-p', help="Path to Pattern file to upload")
 def main(p):
     if p is None:
-        click.echo("Please provide a path to the pattern you would like to instantiate ⚠️")
+        click.secho("Please provide a path to the pattern you would like to instantiate ⚠️", fg="orange")
     else:
         pattern_contents = retrieve_pattern_data_from_file(p)
         send_pattern_to_calm_hub(pattern_contents)
-        click.echo("Pattern successfully uploaded to CALM Hub ✅")
+        click.secho("Pattern successfully uploaded to CALM Hub ✅", fg="green")
 
 if __name__ == "__main__":
     main()
