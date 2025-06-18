@@ -6,7 +6,18 @@ import requests
 class ArchitectureValidationException(Exception):
     pass
 
+def remove_connection_options(path_to_architecture):
+    with open(path_to_architecture, "r") as file:
+        content = file.read()
+    json_content = json.loads(content)
+    new_relationships = [x for x in json_content["relationships"] if 'connection-options' not in x['unique-id']]
+    json_content["relationships"] = new_relationships
+
+    with open(path_to_architecture, "w") as file:
+        json.dump(json_content, file, indent=2)
+
 def validate(pattern, architecture):
+    remove_connection_options(architecture)
     result = subprocess.run([f"calm validate -p {pattern} -a {architecture}"], capture_output=True, text=True, shell=True)
     output = json.loads(result.stdout)
     if(output['hasErrors'] or output['hasWarnings']):
